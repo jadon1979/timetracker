@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: timetracker_development
+  username: timetracker
+  password: 't!M3TR4cK3r!2141'
+
+test:
+  <<: *default  
+  database: timetracker_test
+  username: timetracker
+  password: 't!M3TR4cK3r!2141'
