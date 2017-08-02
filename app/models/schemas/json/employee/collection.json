@@ -1,0 +1,18 @@
+{
+  "type"     : "object",
+  "required" : ["data", "meta"],
+  "properties" : {
+    "meta" : { "type" : "object" },
+    "data" : {
+      "items" : {
+        "id" : { "type" : "number" },
+        "first_name" : { "type" : "string" },
+        "last_name" : { "type" : "string" },
+        "email" : { "type" : "string" },
+        "created_at" : { "type" : "string", "format": "date-time" },
+        "updated_at" : { "type" : "string", "format": "date-time" }
+      },
+      "type"  : "array"
+    }
+  }
+}

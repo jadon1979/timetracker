@@ -15,7 +15,6 @@ Bundler.require(*Rails.groups)
 module Timetracker
   class Application < Rails::Application
     config.load_defaults 5.1
-    #config.eager_load_paths << "#{Rails.root}/lib"
     config.api_only = true
   end
 end

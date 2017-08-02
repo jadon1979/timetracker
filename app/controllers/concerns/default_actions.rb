@@ -17,7 +17,7 @@ module Concerns
     end
 
     def show
-      render json: resource, adapter: :tracker_api
+      render json: resource
     end
 
     def create
