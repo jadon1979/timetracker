@@ -45,7 +45,7 @@ RSpec.describe "Employees", type: :request do
     it { expect(response).to be_success }
     it { expect(response.body).to match_response_schema('employee/resource') }
     it { expect(JSON.parse(response.body)['email']).to eq 'test123@test.com' }
-    it { expect(JSON.parse(response.body)['role_name']).to eq 'Admin' }
+    it { expect(JSON.parse(response.body)['role']['name']).to eq 'Admin' }
   end
 
   describe 'DELETE /:id' do

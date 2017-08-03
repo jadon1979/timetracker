@@ -5,9 +5,9 @@ module Concerns
     extend ActiveSupport::Concern
 
     included do
-      has_scope :sort_by, type: :default, default: 'id,asc', allow_blank: true
-      has_scope :page, type: :default, default: 1
-      has_scope :per, type: :default, default: 50
+      has_scope :sort_by, default: 'id,asc', allow_blank: true
+      has_scope :page, default: 1
+      has_scope :per, default: 50
     end
 
     def index

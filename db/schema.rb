@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730233006) do
+ActiveRecord::Schema.define(version: 20170802225049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,37 @@ ActiveRecord::Schema.define(version: 20170730233006) do
     t.index ["role_id"], name: "index_employees_on_role_id"
   end
 
+  create_table "features", force: :cascade do |t|
+    t.string "summary"
+    t.text "description"
+    t.integer "story_points"
+    t.bigint "project_id", default: 0
+    t.integer "creator_id", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_features_on_creator_id"
+    t.index ["project_id"], name: "index_features_on_project_id"
+  end
+
+  create_table "project_statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "summary"
+    t.text "description"
+    t.bigint "project_status_id", default: 0
+    t.integer "creator_id", default: 0
+    t.boolean "archived", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_projects_on_creator_id"
+    t.index ["project_status_id"], name: "index_projects_on_project_status_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -32,4 +63,6 @@ ActiveRecord::Schema.define(version: 20170730233006) do
   end
 
   add_foreign_key "employees", "roles"
+  add_foreign_key "features", "projects"
+  add_foreign_key "projects", "project_statuses"
 end

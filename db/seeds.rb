@@ -11,3 +11,10 @@ Role.create([
   { name: 'Manager' },
   { name: 'Administrator' }
 ])
+
+ProjectStatus.create([
+  { name: 'Open' },
+  { name: 'In Progress' },
+  { name: 'Suspended' },
+  { name: 'Completed' }
+])

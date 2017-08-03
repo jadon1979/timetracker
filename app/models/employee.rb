@@ -8,9 +8,4 @@ class Employee < ApplicationRecord
   def full_name
     "%s %s" % [first_name, last_name]
   end
-
-  def self.sort_by(str)
-    field, dir = str.split(',')
-    reorder("#{field} #{dir}")
-  end
 end

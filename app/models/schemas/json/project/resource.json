@@ -1,0 +1,29 @@
+{
+  "type" : "object",
+  "required" : [
+    "id",
+    "name",
+    "creator",
+    "project_status"
+  ],
+  "properties" : {
+    "id" : { "type" : "number" },
+    "name" : { "type" : "string" },
+    "summary" : { "type" : ["string", "null"] },
+    "description" : { "type" : ["text", "null"] },
+    "creator" : {
+      "id" : { "type" : "number" },
+      "name" : { "type" : "string" },
+      "type" : "object"
+    },
+    "project_status" : {
+      "id" : { "type" : "number" },
+      "name" : { "type" : "string" },
+      "type" : "object"
+    },
+    "story_points" : { "type" : "number" },
+    "total_features" : { "type" : "number" },
+    "created_at" : { "type" : "string", "format": "date-time" },
+    "updated_at" : { "type" : "string", "format": "date-time" }
+  }
+}

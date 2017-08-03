@@ -1,0 +1,22 @@
+{
+  "type"     : "object",
+  "required" : ["data", "meta"],
+  "properties" : {
+    "meta" : { "type" : "object" },
+    "data" : {
+      "items" : {
+        "id" : { "type" : "number" },
+        "name" : { "type" : "string" },
+        "creator" : {
+          "id" : { "type" : "number" },
+          "name" : { "type" : "string" },
+          "type" : "object"
+        },
+        "project_status" : { "type" : "string" },
+        "created_at" : { "type" : "string", "format": "date-time" },
+        "updated_at" : { "type" : "string", "format": "date-time" }
+      },
+      "type"  : "array"
+    }
+  }
+}
