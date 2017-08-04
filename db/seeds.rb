@@ -13,7 +13,7 @@ Role.create([
 ])
 
 ProjectStatus.create([
-  { name: 'Open' },
+  { name: 'New' },
   { name: 'In Progress' },
   { name: 'Suspended' },
   { name: 'Completed' }

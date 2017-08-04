@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   include Concerns::DefaultActions
   has_scope :archived, default: false
+  has_scope :status, default: nil
 
   private
 

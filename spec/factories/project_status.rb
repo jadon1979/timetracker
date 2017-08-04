@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :project_status do
-    name { Faker::Beer.name }
+    name { Faker::Lorem.unique.word }
   end
 end

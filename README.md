@@ -1,4 +1,4 @@
-### Ruby API Demo
+### Ruby on Rails 5 API Demo
 
 **TODO**
 

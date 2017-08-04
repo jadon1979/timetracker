@@ -9,6 +9,11 @@ class Project < ApplicationRecord
   validates :name, presence: true
 
   scope :archived, -> (is_archived) { where(archived: is_archived) }
+  scope :status, -> (status) {
+    return unless !!status
+    joins(:project_status)
+      .where('LOWER(project_statuses.name) = ?', status.downcase)
+  }
 
   def story_points
     features.sum(:story_points)
