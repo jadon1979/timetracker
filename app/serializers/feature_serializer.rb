@@ -1,6 +1,6 @@
 class FeatureSerializer < ActiveModel::Serializer
   attributes :id, :summary, :description, :creator, :project,
-    :story_points, :created_at, :updated_at
+    :story_points, :total_tasks, :tasks, :created_at, :updated_at
 
   def creator
     return {} if object.creator.nil?

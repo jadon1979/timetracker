@@ -38,4 +38,11 @@ RSpec.describe Project, type: :model do
 
     it { expect(subject.story_points).to eq(5) }
   end
+
+  describe '#total_features' do
+    subject! { create(:project) }
+    let!(:features) { create_list(:feature, 5, project: subject) }
+
+    it { expect(subject.total_features).to eq(5) }
+  end
 end

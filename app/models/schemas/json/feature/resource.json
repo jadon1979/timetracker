@@ -23,6 +23,21 @@
       "name" : { "type" : "string" },
       "type" : "object"
     },
+    "total_tasks" : { "type" : "numer" },
+    "tasks" : {
+      "required" : [ "id", "summary" ],
+      "items" : {
+        "id" : { "type" : "number" },
+        "summary" : { "type" : "string" },
+        "feature_id" : { "type" : "number" },
+        "completed" : { "type" : "boolean" },
+        "created_at" : { "type" : "string", "format": "date-time" },
+        "updated_at" : { "type" : "string", "format": "date-time" },
+        "_destroy" : { "type" : "number" },
+        "type" : "object"
+      },
+      "type" : "array"
+    },
     "created_at" : { "type" : "string", "format": "date-time" },
     "updated_at" : { "type" : "string", "format": "date-time" }
   }
