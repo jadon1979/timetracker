@@ -2,7 +2,8 @@ class Project < ApplicationRecord
   belongs_to :project_status
   belongs_to :creator,
     class_name: 'Employee',
-    foreign_key: 'creator_id'
+    foreign_key: 'creator_id',
+    inverse_of: :projects
 
   has_many :features
 

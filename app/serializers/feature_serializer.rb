@@ -1,20 +1,8 @@
 class FeatureSerializer < ActiveModel::Serializer
   attributes :id, :summary, :description, :creator, :project,
-    :story_points, :total_tasks, :tasks, :created_at, :updated_at
+    :story_points, :total_tasks, :created_at, :updated_at
 
-  def creator
-    return {} if object.creator.nil?
-    {
-      id: object.creator.id,
-      name: object.creator.full_name
-    }
-  end
-
-  def project
-    return {} if object.project.nil?
-    {
-      id: object.project.id,
-      name: object.project.name
-    }
-  end
+  belongs_to :creator, each_serializer: EmployeeSerializer
+  belongs_to :project, each_serializer: ProjectSerializer
+  has_many :tasks, each_serializer: TasksSerializer
 end

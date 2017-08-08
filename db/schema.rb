@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170804161803) do
+ActiveRecord::Schema.define(version: 20170806150649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 20170804161803) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "task_resources", force: :cascade do |t|
+    t.string "summary"
+    t.bigint "employee_id"
+    t.bigint "task_id"
+    t.float "hours"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_task_resources_on_employee_id"
+    t.index ["task_id"], name: "index_task_resources_on_task_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "summary"
     t.boolean "completed", default: false
@@ -74,5 +85,7 @@ ActiveRecord::Schema.define(version: 20170804161803) do
   add_foreign_key "employees", "roles"
   add_foreign_key "features", "projects"
   add_foreign_key "projects", "project_statuses"
+  add_foreign_key "task_resources", "employees"
+  add_foreign_key "task_resources", "tasks"
   add_foreign_key "tasks", "features"
 end
